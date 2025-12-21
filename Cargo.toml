@@ -1,37 +1,15 @@
-[package]
-name = "ai-rs"
-version = "0.1.0"
-edition = "2024"
-
 [workspace]
 resolver = "2"
 members = [
+  "crates/ai",
   "crates/anthropic",
   "crates/gemini",
   "crates/openai",
   "crates/xai",
 ]
 
-[workspace.dependencies]
-anthropic = { path = "crates/anthropic" }
-gemini = { path = "crates/gemini" }
-openai = { path = "crates/openai" }
-xai = { path = "crates/xai" }
-
-[workspace.lints.clippy]
-all = "warn"
-
 [workspace.lints.rust]
 unsafe_code = "deny"
-
-[dependencies]
-anthropic = { workspace = true }
-gemini = { workspace = true }
-openai = { workspace = true }
-xai = { workspace = true }
-
-[lints]
-workspace = true
 
 [profile.release]
 opt-level = 3

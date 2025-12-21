@@ -3,7 +3,7 @@
 version = 4
 
 [[package]]
-name = "ai-rs"
+name = "ai"
 version = "0.1.0"
 dependencies = [
  "anthropic",
