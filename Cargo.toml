@@ -3,4 +3,35 @@ name = "ai-rs"
 version = "0.1.0"
 edition = "2024"
 
-[dependencies]
+[workspace]
+resolver = "2"
+members = [
+  "crates/anthropic",
+  "crates/gemini",
+  "crates/openai",
+  "crates/xai",
+]
+
+[workspace.dependencies]
+anthropic = { path = "crates/anthropic" }
+gemini = { path = "crates/gemini" }
+openai = { path = "crates/openai" }
+xai = { path = "crates/xai" }
+
+[workspace.lints.clippy]
+all = "warn"
+
+[workspace.lints.rust]
+unsafe_code = "deny"
+
+[profile.release]
+opt-level = 3
+
+[profile.production]
+inherits = "release"
+lto = "fat"
+codegen-units = 1
+
+[profile.profiling]
+inherits = "release"
+debug = true
