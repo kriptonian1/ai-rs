@@ -24,6 +24,12 @@ all = "warn"
 [workspace.lints.rust]
 unsafe_code = "deny"
 
+[dependencies]
+anthropic = { workspace = true }
+gemini = { workspace = true }
+openai = { workspace = true }
+xai = { workspace = true }
+
 [lints]
 workspace = true
 
