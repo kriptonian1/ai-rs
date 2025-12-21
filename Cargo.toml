@@ -24,6 +24,9 @@ all = "warn"
 [workspace.lints.rust]
 unsafe_code = "deny"
 
+[lints]
+workspace = true
+
 [profile.release]
 opt-level = 3
 
