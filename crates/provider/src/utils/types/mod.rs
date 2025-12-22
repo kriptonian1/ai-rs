@@ -8,3 +8,4 @@ mod tool_approval_response;
 mod tool_call;
 mod tool_model_message;
 mod tool_result;
+mod user_model_message;

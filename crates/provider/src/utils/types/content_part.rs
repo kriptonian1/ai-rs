@@ -8,7 +8,7 @@ use serde_json::Value as unknown;
 use serde::{ Serialize, Deserialize };
 
 #[derive(Serialize, Deserialize, Debug)]
-pub(super) enum DataOrURL {
+pub(crate) enum DataOrURL {
     Data(DataContent),
     URL(String),
 }
@@ -45,70 +45,110 @@ pub struct ToolResultPart {
 }
 
 #[derive(Serialize, Deserialize, Debug)]
-#[serde(tag = "type", rename_all = "kebab-case")]
+#[serde(tag = "type")]
+pub struct TextPart {
+    pub text: String,
+    #[serde(rename = "providerOptions", skip_serializing_if = "Option::is_none")]
+    pub provider_options: Option<ProviderOptions>,
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+#[serde(tag = "type")]
+pub struct ImagePart {
+    pub image: DataOrURL,
+    #[serde(rename = "mediaType", skip_serializing_if = "Option::is_none")]
+    pub media_type: Option<String>,
+    #[serde(rename = "providerOptions", skip_serializing_if = "Option::is_none")]
+    pub provider_options: Option<ProviderOptions>,
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+#[serde(tag = "type")]
+pub struct FilePart {
+    pub data: DataOrURL,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub filename: Option<String>,
+    #[serde(rename = "mediaType")]
+    pub media_type: String,
+    #[serde(rename = "providerOptions", skip_serializing_if = "Option::is_none")]
+    pub provider_options: Option<ProviderOptions>,
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+#[serde(tag = "type")]
+pub struct ReasoningPart {
+    pub text: String,
+    #[serde(rename = "providerOptions", skip_serializing_if = "Option::is_none")]
+    pub provider_options: Option<ProviderOptions>,
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+#[serde(untagged)]
 pub enum ContentPart {
-    Text {
-        text: String,
-        #[serde(rename = "providerOptions", skip_serializing_if = "Option::is_none")]
-        provider_options: Option<ProviderOptions>,
-    },
-    Image {
-        image: DataOrURL,
-        #[serde(rename = "mediaType", skip_serializing_if = "Option::is_none")]
-        media_type: Option<String>,
-        #[serde(rename = "providerOptions", skip_serializing_if = "Option::is_none")]
-        provider_options: Option<ProviderOptions>,
-    },
-    File {
-        data: DataOrURL,
-        #[serde(skip_serializing_if = "Option::is_none")]
-        filename: Option<String>,
-        #[serde(rename = "mediaType")]
-        media_type: String,
-        #[serde(rename = "providerOptions", skip_serializing_if = "Option::is_none")]
-        provider_options: Option<ProviderOptions>,
-    },
-    Reasoning {
-        text: String,
-        #[serde(rename = "providerOptions", skip_serializing_if = "Option::is_none")]
-        provider_options: Option<ProviderOptions>,
-    },
-    ToolCallPart(ToolCallPart),
-    ToolResultPart(ToolResultPart),
+    Text(TextPart),
+    Image(ImagePart),
+    File(FilePart),
+    Reasoning(ReasoningPart),
+    ToolCall(ToolCallPart),
+    ToolResult(ToolResultPart),
 }
 
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(tag = "type", rename_all = "kebab-case")]
+pub struct TextOutput {
+    pub value: String,
+    #[serde(rename = "providerOptions", skip_serializing_if = "Option::is_none")]
+    pub provider_options: Option<ProviderOptions>,
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+#[serde(tag = "type", rename_all = "kebab-case")]
+pub struct JsonOutput {
+    pub value: JSONValue,
+    #[serde(rename = "providerOptions", skip_serializing_if = "Option::is_none")]
+    pub provider_options: Option<ProviderOptions>,
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+#[serde(tag = "type", rename_all = "kebab-case")]
+pub struct ExecutionDeniedOutput {
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub reason: Option<String>,
+    #[serde(rename = "providerOptions", skip_serializing_if = "Option::is_none")]
+    pub provider_options: Option<ProviderOptions>,
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+#[serde(tag = "type", rename_all = "kebab-case")]
+pub struct ErrorTextOutput {
+    pub value: String,
+    #[serde(rename = "providerOptions", skip_serializing_if = "Option::is_none")]
+    pub provider_options: Option<ProviderOptions>,
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+#[serde(tag = "type", rename_all = "kebab-case")]
+pub struct ErrorJsonOutput {
+    pub value: JSONValue,
+    #[serde(rename = "providerOptions", skip_serializing_if = "Option::is_none")]
+    pub provider_options: Option<ProviderOptions>,
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+#[serde(tag = "type", rename_all = "kebab-case")]
+pub struct ContentOutput {
+    pub value: Vec<ToolResultContentPart>,
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+#[serde(untagged)]
 pub enum ToolResultOutput {
-    Text {
-        value: String,
-        #[serde(rename = "providerOptions", skip_serializing_if = "Option::is_none")]
-        provider_options: Option<ProviderOptions>,
-    },
-    Json {
-        value: JSONValue,
-        #[serde(rename = "providerOptions", skip_serializing_if = "Option::is_none")]
-        provider_options: Option<ProviderOptions>,
-    },
-    ExecutionDenied {
-        #[serde(skip_serializing_if = "Option::is_none")]
-        reason: Option<String>,
-        #[serde(rename = "providerOptions", skip_serializing_if = "Option::is_none")]
-        provider_options: Option<ProviderOptions>,
-    },
-    ErrorText {
-        value: String,
-        #[serde(rename = "providerOptions", skip_serializing_if = "Option::is_none")]
-        provider_options: Option<ProviderOptions>,
-    },
-    ErrorJson {
-        value: JSONValue,
-        #[serde(rename = "providerOptions", skip_serializing_if = "Option::is_none")]
-        provider_options: Option<ProviderOptions>,
-    },
-    Content {
-        value: Vec<ToolResultContentPart>,
-    },
+    Text(TextOutput),
+    Json(JsonOutput),
+    ExecutionDenied(ExecutionDeniedOutput),
+    ErrorText(ErrorTextOutput),
+    ErrorJson(ErrorJsonOutput),
+    Content(ContentOutput),
 }
 
 #[derive(Serialize, Deserialize, Debug)]

@@ -27,39 +27,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b04e03aa-83ec-4186-b064-5fb4c0596b43" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.ask2agent.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crates/provider/Cargo.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crates/provider/src/json_value/is_json.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crates/provider/src/json_value/json_value.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crates/provider/src/json_value/mod.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crates/provider/src/lib.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crates/provider/src/shared_provider/mod.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crates/provider/src/shared_provider/v2/mod.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crates/provider/src/shared_provider/v2/shared_headers.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crates/provider/src/shared_provider/v2/shared_provider_metadata.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crates/provider/src/shared_provider/v2/shared_provider_option.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crates/provider/src/shared_provider/v3/mod.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crates/provider/src/shared_provider/v3/shared_headers.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crates/provider/src/shared_provider/v3/shared_provider_metadata.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crates/provider/src/shared_provider/v3/shared_provider_option.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crates/provider/src/shared_provider/v3/shared_provider_warning.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crates/provider/src/utils/mod.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crates/provider/src/utils/types/assistant_model_message.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crates/provider/src/utils/types/content_part.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crates/provider/src/utils/types/data_content.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crates/provider/src/utils/types/mod.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crates/provider/src/utils/types/provider_options.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crates/provider/src/utils/types/system_model_message.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crates/provider/src/utils/types/tool_approval_request.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crates/provider/src/utils/types/tool_approval_response.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crates/provider/src/utils/types/tool_call.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crates/provider/src/utils/types/tool_model_message.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crates/provider/src/utils/types/tool_result.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crates/provider/src/utils/types/user_model_message.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crates/anthropic/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/crates/anthropic/src/lib.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crates/provider/src/utils/types/content_part.rs" beforeDir="false" afterPath="$PROJECT_DIR$/crates/provider/src/utils/types/content_part.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crates/provider/src/utils/types/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/crates/provider/src/utils/types/mod.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +126,7 @@
       <workItem from="1766408367083" duration="113000" />
       <workItem from="1766408485091" duration="67000" />
       <workItem from="1766408572034" duration="78000" />
-      <workItem from="1766408664791" duration="9058000" />
+      <workItem from="1766408664791" duration="10299000" />
     </task>
     <servers />
   </component>
