@@ -4,7 +4,8 @@ members = [
   "crates/ai",
   "crates/anthropic",
   "crates/gemini",
-  "crates/openai",
+  "crates/openai", 
+  "crates/provider",
   "crates/xai",
 ]
 
