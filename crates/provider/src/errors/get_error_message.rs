@@ -40,11 +40,11 @@ mod tests_get_error_message {
     }
 
     #[test]
-    fn test_serd_json() {
-        let custome_error = json!({ "an": "object" });
-        let error = get_error_message(Some(&custome_error));
+    fn test_serde_json() {
+        let custom_error = json!({ "an": "object" });
+        let error = get_error_message(Some(&custom_error));
 
-        assert_eq!(error, custome_error.to_string())
+        assert_eq!(error, custom_error.to_string())
     }
 
     #[test]
