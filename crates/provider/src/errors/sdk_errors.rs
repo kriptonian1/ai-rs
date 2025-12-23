@@ -3,7 +3,12 @@ use std::fmt;
 
 /// Symbol used for identifying AI SDK Error instances.
 /// Enables checking if an error is an instance of AISDKError across package versions.
-const MARKER: &str = "aisdk.error";
+pub(crate) const MARKER: &str = "aisdk.error";
+
+#[inline(always)]
+pub(crate) fn extended_marker(base: &str, extension: &str) -> String {
+    format!("{}_{}", base, extension)
+}
 
 /// Custom error struct for AI SDK related errors.
 #[derive(Debug)]
