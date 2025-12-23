@@ -1,15 +1,10 @@
+use super::sdk_errors::{AISDKError, MARKER, extended_marker};
+use serde_json::Value;
 use std::collections::HashMap;
 use std::error::Error;
 use std::fmt;
-use serde_json::Value;
-use super::sdk_errors::{
-    MARKER,
-    AISDKError,
-    extended_marker,
-};
 
 const NAME: &str = "AI_APICallError";
-
 
 #[derive(Debug)]
 pub struct APICallError {
@@ -81,11 +76,7 @@ impl Error for APICallError {
 
 impl From<APICallError> for AISDKError {
     fn from(error: APICallError) -> Self {
-        AISDKError::new(
-            NAME,
-            error.message.clone(),
-            Some(Box::new(error)),
-        )
+        AISDKError::new(NAME, error.message.clone(), Some(Box::new(error)))
     }
 }
 
@@ -143,7 +134,11 @@ mod test_api_call_error {
                 None, // Let default logic take over
                 None,
             );
-            assert!(error.is_retryable, "Status code {} should be retryable", code);
+            assert!(
+                error.is_retryable,
+                "Status code {} should be retryable",
+                code
+            );
         }
     }
 
@@ -163,7 +158,11 @@ mod test_api_call_error {
                 None, // Let default logic take over
                 None,
             );
-            assert!(!error.is_retryable, "Status code {} should not be retryable", code);
+            assert!(
+                !error.is_retryable,
+                "Status code {} should not be retryable",
+                code
+            );
         }
     }
 
@@ -272,9 +271,11 @@ mod test_api_call_error {
             None,
         );
 
-        assert_eq!(format!("{}", api_call_error), "AI_APICallError: API call failed");
+        assert_eq!(
+            format!("{}", api_call_error),
+            "AI_APICallError: API call failed"
+        );
     }
-
 
     #[test]
     fn test_is_instance_method() {

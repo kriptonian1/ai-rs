@@ -51,7 +51,7 @@ impl AISDKError {
         Self::has_marker(error, MARKER)
     }
 
-    fn has_marker(error: &(dyn Error + 'static), _marker: &str) -> bool {
+    pub fn has_marker(error: &(dyn Error + 'static), _marker: &str) -> bool {
         error.downcast_ref::<AISDKError>().is_some()
     }
 }
@@ -64,9 +64,7 @@ impl fmt::Display for AISDKError {
 
 impl Error for AISDKError {
     fn source(&self) -> Option<&(dyn Error + 'static)> {
-        self.cause
-            .as_ref()
-            .map(|e| &**e as &(dyn Error + 'static))
+        self.cause.as_ref().map(|e| &**e as &(dyn Error + 'static))
     }
 }
 
