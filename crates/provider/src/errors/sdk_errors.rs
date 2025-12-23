@@ -64,3 +64,58 @@ impl Error for AISDKError {
             .map(|e| &**e as &(dyn Error + 'static))
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use std::io;
+
+    #[test]
+    fn test_create_constructor() {
+        let error = AISDKError::new("TestError", "An error occurred", None);
+        assert_eq!(error.name, "TestError");
+        assert_eq!(error.message, "An error occurred");
+        assert!(error.cause.is_none());
+    }
+    #[test]
+    fn test_new_without_cause() {
+        let error = AISDKError::new("TestError", "Something went wrong", None);
+        assert_eq!(error.name, "TestError");
+        assert_eq!(error.message, "Something went wrong");
+        assert!(error.cause.is_none());
+    }
+
+    #[test]
+    fn test_new_with_cause() {
+        let cause = io::Error::new(io::ErrorKind::Other, "io error");
+        let error = AISDKError::new("TestError", "Something went wrong", Some(Box::new(cause)));
+        assert_eq!(error.name, "TestError");
+        assert_eq!(error.message, "Something went wrong");
+        assert!(error.cause.is_some());
+    }
+
+    #[test]
+    fn test_display() {
+        let error = AISDKError::new("TestError", "Something went wrong", None);
+        assert_eq!(format!("{}", error), "TestError: Something went wrong");
+    }
+
+    #[test]
+    fn test_source() {
+        let cause = io::Error::new(io::ErrorKind::Other, "io error");
+        let error = AISDKError::new("TestError", "Something went wrong", Some(Box::new(cause)));
+
+        let source = error.source();
+        assert!(source.is_some());
+        assert_eq!(source.unwrap().to_string(), "io error");
+    }
+
+    #[test]
+    fn test_is_instance() {
+        let sdk_error = AISDKError::new("TestError", "Something went wrong", None);
+        assert!(AISDKError::is_instance(&sdk_error));
+
+        let io_error = io::Error::new(io::ErrorKind::Other, "io error");
+        assert_eq!(AISDKError::is_instance(&io_error), false);
+    }
+}

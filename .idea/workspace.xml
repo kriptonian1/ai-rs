@@ -27,19 +27,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b04e03aa-83ec-4186-b064-5fb4c0596b43" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/crates/provider/src/errors/api_call_error.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crates/provider/src/errors/mod.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crates/provider/src/errors/sdk_errors.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crates/provider/src/utils/schema.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crates/provider/src/errors/api_call_error_test.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crates/provider/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/crates/provider/src/lib.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crates/provider/src/utils/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/crates/provider/src/utils/mod.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crates/gemini/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/crates/gemini/src/lib.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crates/openai/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/crates/openai/src/lib.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crates/provider/src/errors/sdk_errors.rs" beforeDir="false" afterPath="$PROJECT_DIR$/crates/provider/src/errors/sdk_errors.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crates/xai/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/crates/xai/src/lib.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="RsBuildProfile:test" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -83,6 +83,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Cargo.Test sdk_errors::tests.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -91,7 +92,7 @@
     "RunOnceActivity.rust.reset.selective.auto.import": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "feat/provider-and-provider-utils",
     "last_opened_file_path": "/home/sambit/projects/sdk-test",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -113,6 +114,31 @@
       <recent name="$PROJECT_DIR$/crates/anthropic" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="Test sdk_errors::tests" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="buildProfileId" value="test" />
+      <option name="command" value="test --package provider --lib errors::sdk_errors::tests" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <option name="emulateTerminal" value="true" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Cargo.Test sdk_errors::tests" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="RustProjectSettings">
     <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
   </component>
@@ -129,7 +155,7 @@
       <workItem from="1766408367083" duration="113000" />
       <workItem from="1766408485091" duration="67000" />
       <workItem from="1766408572034" duration="78000" />
-      <workItem from="1766408664791" duration="15888000" />
+      <workItem from="1766408664791" duration="27260000" />
     </task>
     <servers />
   </component>
