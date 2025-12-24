@@ -13,9 +13,9 @@ pub(crate) fn extended_marker(base: &str, extension: &str) -> String {
 /// Custom error struct for AI SDK related errors.
 #[derive(Debug)]
 pub(super) struct AISDKError {
-    name: String,
-    message: String,
-    cause: Option<Box<dyn Error + Send + Sync + 'static>>,
+    pub(super) name: String,
+    pub(super) message: String,
+    pub(super) cause: Option<Box<dyn Error + Send + Sync + 'static>>,
 }
 
 impl AISDKError {
