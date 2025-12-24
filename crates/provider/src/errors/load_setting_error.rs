@@ -52,7 +52,7 @@ mod tests_load_setting_error {
 
     #[test]
     fn test_constructor() {
-        let message = String::from("API key not found");
+        let message = String::from("Setting Loading Error");
         let load_setting_error = LoadSettingError::new(&message);
 
         assert_eq!(load_setting_error.message, message);
@@ -64,7 +64,7 @@ mod tests_load_setting_error {
 
     #[test]
     fn test_is_instance() {
-        let message = String::from("API key not found");
+        let message = String::from("Setting Loading Error");
         let load_setting_error = LoadSettingError::new(&message);
 
         assert!(LoadSettingError::is_instance(&load_setting_error));
@@ -72,7 +72,7 @@ mod tests_load_setting_error {
 
     #[test]
     fn test_display() {
-        let message = String::from("API key not found");
+        let message = String::from("Setting Loading Error");
         let load_setting_error = LoadSettingError::new(&message);
 
         assert_eq!(
@@ -83,7 +83,7 @@ mod tests_load_setting_error {
 
     #[test]
     fn test_load_setting_error_to_aisdk_error() {
-        let message = String::from("API key not found");
+        let message = String::from("Setting Loading Error");
         let load_setting_error = LoadSettingError::new(&message);
         let aisdk_error: AISDKError = load_setting_error.into();
 
