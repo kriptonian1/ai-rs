@@ -20,7 +20,7 @@ impl LoadSettingError {
     ) -> Self {
         Self {
             message: message.clone(),
-            base: AISDKError::new(NAME, format!("Failed to load API key: {}", message), None),
+            base: AISDKError::new(NAME, message.clone(), None),
         }
     }
 
@@ -40,7 +40,7 @@ impl From<LoadSettingError> for AISDKError {
     fn from(error: LoadSettingError) -> Self {
         AISDKError::new(
             NAME,
-            format!("Failed to load API key: {}", error.message),
+            error.message.clone(),
             Some(Box::new(error)),
         )
     }
@@ -58,7 +58,7 @@ mod tests_load_setting_error {
         assert_eq!(load_setting_error.message, message);
         assert_eq!(
             format!("{}", load_setting_error.base),
-            format!("{}: Failed to load API key: {}", NAME, message)
+            format!("{}: {}", NAME, message)
         );
     }
 
@@ -89,7 +89,7 @@ mod tests_load_setting_error {
 
         assert_eq!(
             format!("{}", aisdk_error),
-            format!("{}: Failed to load API key: {}", NAME, message)
+            format!("{}: {}", NAME, message)
         );
     }
 }
