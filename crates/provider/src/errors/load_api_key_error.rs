@@ -10,8 +10,8 @@ const NAME: &str = "AI_LoadAPIKeyError";
 
 #[derive(Debug)]
 pub struct LoadAPIKeyError {
-    pub message: String,
-    pub base: AISDKError,
+    message: String,
+    base: AISDKError,
 }
 
 impl LoadAPIKeyError {
