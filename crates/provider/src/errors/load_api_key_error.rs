@@ -82,7 +82,7 @@ mod tests_load_api_key_error {
     }
 
     #[test]
-    fn test_api_key_error_to_aidsk_error() {
+    fn test_load_api_key_error_to_aisdk_error() {
         let message = String::from("API key not found");
         let load_api_key_error = LoadAPIKeyError::new(&message);
         let aisdk_error: AISDKError = load_api_key_error.into();
