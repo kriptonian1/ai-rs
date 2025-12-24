@@ -10,4 +10,5 @@ mod invalid_response_data_error;
 mod load_api_key_error;
 mod load_setting_error;
 mod no_content_generated;
+mod no_such_model_error;
 mod unsupported_functionality_error;
