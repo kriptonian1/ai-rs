@@ -7,3 +7,4 @@ mod invalid_argument_error;
 mod type_validation_error;
 mod invalid_prompt_error;
 mod invalid_response_data_error;
+mod load_api_key_error;
