@@ -4,3 +4,6 @@ mod tool_call;
 mod collect_tool_approvals;
 mod tool_result;
 mod content_part;
+mod execute_tool_call;
+mod tool_error;
+mod tool_output;

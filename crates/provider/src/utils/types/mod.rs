@@ -11,6 +11,7 @@ mod tool_result;
 mod user_model_message;
 mod tool;
 mod model_message;
+mod execute_tool;
 
 // On-Demand Re-Exports
 pub use tool::{
@@ -29,3 +30,7 @@ pub use content_part::{
     DataOrURL, FilePart, ImagePart, TextPart, ReasoningPart
 };
 pub use data_content::DataContent;
+pub use execute_tool::{
+    execute_tool, ToolOutput
+};
+pub use tool::ToolExecutionOptions;
