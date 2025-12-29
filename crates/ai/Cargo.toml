@@ -5,6 +5,12 @@ edition = "2024"
 
 [dependencies]
 anthropic = { path = "../anthropic" }
+futures = "0.3.31"
+gateway = { path = "../gateway" }
 gemini = { path = "../gemini" }
 openai = { path = "../openai" }
+provider = { path = "../provider" }
+serde = "1.0.228"
+serde_json = "1.0.147"
 xai = { path = "../xai" }
+zod-rs = "0.2.0"
