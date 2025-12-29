@@ -54,7 +54,7 @@ pub async fn execute_tool_call(
     let abort_signal_json = abort_signal.map(|v| serde_json::from_value(v).unwrap_or(JSONValue::Null));
 
     let mut output: Option<Value> = None;
-    let mut stream = execute_tool(
+    let mut stream = Box::pin(execute_tool(
         execute_wrapper,
         input.clone(),
         ToolExecutionOptions {
@@ -63,7 +63,7 @@ pub async fn execute_tool_call(
             abort_signal: abort_signal_json,
             experimental_context,
         },
-    );
+    ));
 
     while let Some(result) = stream.next().await {
         match result {
