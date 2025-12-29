@@ -1,4 +1,5 @@
 mod json_value;
+mod language_model;
 mod provider_metadata;
 
 // On Demand re-exports

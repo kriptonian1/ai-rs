@@ -1,0 +1,12 @@
+[package]
+name = "gateway"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+serde = "1.0.228"
+strum = "0.27"
+strum_macros = "0.27"
+
+[lints]
+workspace = true
