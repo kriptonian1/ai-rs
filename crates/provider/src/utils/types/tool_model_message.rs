@@ -18,7 +18,7 @@ pub struct ToolModelMessage {
 pub type ToolContent = Vec<ToolContentPart>;
 
 #[derive(Debug, Serialize, Deserialize)]
-#[serde(untagged)]
+#[serde(tag = "type", rename_all = "kebab-case")]
 pub enum ToolContentPart {
     ToolResult(ToolResultPart),
     ToolApproval(ToolApprovalResponse),
