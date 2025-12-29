@@ -1,5 +1,6 @@
 mod generate_text;
 mod types;
+mod utils;
 
 pub use anthropic;
 pub use gemini;
