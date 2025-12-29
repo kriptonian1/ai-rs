@@ -8,7 +8,7 @@ use serde_json::Value as unknown;
 use serde::{ Serialize, Deserialize };
 
 #[derive(Serialize, Deserialize, Debug)]
-pub(crate) enum DataOrURL {
+pub enum DataOrURL {
     Data(DataContent),
     URL(String),
 }

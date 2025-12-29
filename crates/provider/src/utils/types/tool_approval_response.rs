@@ -1,9 +1,9 @@
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(tag = "type", rename_all = "kebab-case")]
-pub(crate) struct ToolApprovalResponse {
+pub struct ToolApprovalResponse {
     pub approval_id: String,
     pub approved: bool,
-    reason: Option<String>,
+    pub reason: Option<String>,
 }

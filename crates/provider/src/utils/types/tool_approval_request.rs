@@ -1,8 +1,8 @@
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(tag = "type", rename_all = "kebab-case")]
-pub(crate) enum ToolApprovalRequest {
+pub enum ToolApprovalRequest {
     ToolApprovalRequest {
         #[serde(rename = "approvalID")]
         approval_id: String,

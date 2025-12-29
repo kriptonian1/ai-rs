@@ -6,7 +6,7 @@ use super::{
 };
 
 #[derive(Serialize, Deserialize, Debug)]
-pub(crate) struct AssistantModelMessage {
+pub struct AssistantModelMessage {
     pub role: String,
     pub content: AssistantContent,
     #[serde(rename = "providerOptions", skip_serializing_if = "Option::is_none")]
@@ -15,14 +15,14 @@ pub(crate) struct AssistantModelMessage {
 
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(untagged)]
-pub(crate) enum AssistantContent {
+pub enum AssistantContent {
     String(String),
     Parts(Vec<AssistantContentPart>),
 }
 
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(untagged)]
-pub(crate) enum AssistantContentPart {
+pub enum AssistantContentPart {
     ContentPart(ContentPart),
     ToolApprovalRequest(ToolApprovalRequest),
 }
