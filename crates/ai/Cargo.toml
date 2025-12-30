@@ -7,4 +7,5 @@ edition = "2024"
 anthropic = { path = "../anthropic" }
 gemini = { path = "../gemini" }
 openai = { path = "../openai" }
+provider = { path = "../provider" }
 xai = { path = "../xai" }
