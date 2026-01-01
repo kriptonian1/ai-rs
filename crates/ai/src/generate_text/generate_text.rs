@@ -4,7 +4,7 @@ use provider::{
     traits::generate_text::{GenerateText, GenerateTextRequest},
 };
 
-async fn generate_text(
+pub async fn generate_text(
     provider: &dyn GenerateText,
     models: Models,
     prompt: &str,
