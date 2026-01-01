@@ -5,6 +5,7 @@ edition = "2024"
 
 [dependencies]
 anthropic = { path = "../anthropic" }
+dotenvy = "0.15.7"
 gemini = { path = "../gemini" }
 openai = { path = "../openai" }
 provider = { path = "../provider" }

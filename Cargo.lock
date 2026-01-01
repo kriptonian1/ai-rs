@@ -7,6 +7,7 @@ name = "ai"
 version = "0.1.0"
 dependencies = [
  "anthropic",
+ "dotenvy",
  "gemini",
  "openai",
  "provider",
@@ -20,6 +21,17 @@ dependencies = [
 [[package]]
 name = "anthropic"
 version = "0.1.0"
+
+[[package]]
+name = "async-trait"
+version = "0.1.89"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "9035ad2d096bed7955a320ee7e2230574d28fd3c3a0f186cbea1ff3c7eed5dbb"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
+]
 
 [[package]]
 name = "atomic-waker"
@@ -93,6 +105,12 @@ dependencies = [
  "quote",
  "syn",
 ]
+
+[[package]]
+name = "dotenvy"
+version = "0.15.7"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1aaf95b3e5c8f23aa320147307562d361db0ae0d51242340f558153b4eb2439b"
 
 [[package]]
 name = "encoding_rs"
@@ -603,6 +621,13 @@ checksum = "42f5e15c9953c5e4ccceeb2e7382a716482c34515315f7b03532b8b4e8393d2d"
 [[package]]
 name = "openai"
 version = "0.1.0"
+dependencies = [
+ "async-trait",
+ "provider",
+ "reqwest",
+ "serde",
+ "serde_json",
+]
 
 [[package]]
 name = "openssl"
@@ -717,6 +742,7 @@ dependencies = [
 name = "provider"
 version = "0.1.0"
 dependencies = [
+ "async-trait",
  "reqwest",
  "serde",
  "serde_json",
