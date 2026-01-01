@@ -25,7 +25,7 @@ mod tests {
     use super::*;
 
     #[tokio::test]
-    async fn test_generate_text() {
+    async fn test_generate_text_openai() {
         dotenvy::dotenv().ok();
         let api_key = std::env::var("OPEN_API_KEY").unwrap();
 
