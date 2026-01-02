@@ -1,6 +1,6 @@
 use async_trait::async_trait;
 
-use crate::{errors::generate_text_error::GenerateTextError, language_models::Models};
+use crate::errors::generate_text_error::GenerateTextError;
 
 pub struct GenerateTextRequest {
     pub model: String,
@@ -13,6 +13,7 @@ pub struct GenerateTextResponse {
 
 #[async_trait]
 pub trait GenerateText {
+    /// request AI model's API and returns the answer to the prompt
     async fn generate_text(
         &self,
         req: GenerateTextRequest,

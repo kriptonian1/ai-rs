@@ -4,6 +4,25 @@ use provider::{
     traits::generate_text::{GenerateText, GenerateTextRequest},
 };
 
+/// Generate text for a given model using the provided prompt, this dose not stream output
+///
+/// # Example
+/// ```
+/// let api_key = std::env::var("OPENAI_API_KEY").unwrap();
+/// if let Ok(openai) = OpenAiClient::new(api_key) {
+///   let text = generate_text(
+///        &openai,
+///        Models::OpenAi(provider::language_models::OpenAiModel::Gpt4_1),
+///        "Hey, How are you ?",
+///    )
+///    .await;
+///
+///    match text {
+///        Ok(val) => println!("AI: {}", val),
+///        Err(err) => println!("Error: {}", err),
+///    }
+/// }
+/// ```
 pub async fn generate_text(
     provider: &dyn GenerateText,
     models: Models,
