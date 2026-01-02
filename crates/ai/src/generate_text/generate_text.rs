@@ -29,18 +29,37 @@ mod tests {
         dotenvy::dotenv().ok();
         let api_key = std::env::var("OPEN_API_KEY").unwrap();
 
-        let openai = OpenAiClient::new(api_key.to_string());
+        if let Ok(openai) = OpenAiClient::new(api_key) {
+            let text = generate_text(
+                &openai,
+                Models::OpenAi(provider::language_models::OpenAiModel::Gpt4_1),
+                "Hey, How are you ?",
+            )
+            .await;
 
-        let text = generate_text(
-            &openai,
-            Models::OpenAi(provider::language_models::OpenAiModel::Gpt4_1),
-            "Hey, How are you ?",
-        )
-        .await;
+            match text {
+                Ok(val) => println!("{}", val),
+                Err(err) => println!("{}", err),
+            }
+        }
+    }
+    #[test]
+    fn test_generate_text_empty_error() {
+        let api_key = "   ".to_string();
+        let client = OpenAiClient::new(api_key);
+        match client {
+            Err(err) => assert_eq!("API key is missing", err.to_string()),
+            _ => panic!("Should return error"),
+        }
+    }
 
-        match text {
-            Ok(val) => println!("{}", val),
-            Err(err) => println!("{}", err),
+    #[test]
+    fn test_generate_text_invalid_error() {
+        let api_key = "abcd".to_string();
+        let client = OpenAiClient::new(api_key);
+        match client {
+            Err(err) => assert_eq!("API key format is invalid", err.to_string()),
+            _ => panic!("Should return error"),
         }
     }
 }

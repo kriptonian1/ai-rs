@@ -1,6 +1,6 @@
 use async_trait::async_trait;
 use provider::{
-    errors::generate_text_error::GenerateTextError,
+    errors::{client_error::ClientError, generate_text_error::GenerateTextError},
     traits::generate_text::{GenerateText, GenerateTextRequest, GenerateTextResponse},
 };
 use serde_json::Value;
@@ -14,11 +14,17 @@ pub struct OpenAiClient {
 }
 
 impl OpenAiClient {
-    pub fn new(api_key: String) -> Self {
-        Self {
+    pub fn new(api_key: String) -> Result<Self, ClientError> {
+        if api_key.trim().is_empty() {
+            return Err(ClientError::EmptyAPIKey);
+        }
+        if !api_key.starts_with("sk-") {
+            return Err(ClientError::InvalidAPIKey);
+        }
+        Ok(Self {
             api_key,
             client: reqwest::Client::new(),
-        }
+        })
     }
 }
 
