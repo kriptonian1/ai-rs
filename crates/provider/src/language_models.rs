@@ -388,6 +388,12 @@ pub enum ZaiModel {
 }
 
 impl Models {
+    /// returns the language model as string
+    /// # Example
+    /// ```
+    /// let model = Models::OpenAi(provider::language_models::OpenAiModel::Gpt4_1);
+    /// assert_eq!("openai/gpt-4.1", model.to_string());
+    /// ```
     pub fn to_string(&self) -> String {
         match self {
             Models::Alibaba(m) => m.to_string(),
@@ -415,8 +421,13 @@ impl Models {
         }
     }
 
-    /// returns the model version
-    /// example: Models::OpenAi(provider::language_models::OpenAiModel::Gpt4_1) will return "gpt-4.1"
+    /// returns the model version from the `Model` enum
+    ///
+    /// # Example
+    /// ```
+    /// let model = Models::OpenAi(provider::language_models::OpenAiModel::Gpt4_1);
+    /// assert_eq!("gpt-4.1", model.to_model_version());
+    /// ```
     pub fn to_model_version(&self) -> String {
         let get_model = self.to_string();
         get_model
